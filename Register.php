@@ -74,7 +74,7 @@ if (empty($email)) {
                 $car = $interested_cars[$i];
 
                 $sql2 = "INSERT INTO interested(client_id,interested_car) VALUES ((SELECT client_id FROM client WHERE email LIKE '%$email%'),  '$car')";
-                if (!mysqli_multi_query($con, $sql2)) {
+                if (!mysqli_query($con, $sql2)) {
                     die('Error: ' . mysqli_error($con));
                 }
 

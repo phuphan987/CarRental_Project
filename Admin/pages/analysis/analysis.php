@@ -5,6 +5,15 @@ $con = mysqli_connect("localhost", "root", "", "CarRental_DB");
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
+
+$sql = "SELECT b.brand AS Brand, COUNT(r.rental_id) AS 'Number of Leases', 
+SUM(DATEDIFF(r.end_date, r.start_date) * c.price_per_day) AS 'Revenue Generated from Leasing'
+FROM rent_info r
+INNER JOIN car_info c ON r.license_plate = c.license_plate
+INNER JOIN brand_info b ON c.model_id = b.model_id
+GROUP BY b.brand
+ORDER BY COUNT(r.rental_id) DESC;";
+$result = mysqli_query($con, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +62,8 @@ if (mysqli_connect_errno()) {
                 </div>
 
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <li class="nav-item menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -156,9 +166,36 @@ if (mysqli_connect_errno()) {
                 <div class="container-fluid">
                     <div class="mb-2">
                         <div>
-                            <h1 class="m-0">Client</h1>
+                            <h1 class="ml-2 mb-3">Advanced Analysis Report 1</h1>
+                            <div class="table-responsive-md">
+                                <table class="table table-striped table-bordered">
+                                    <thead class="">
+                                        <tr>
+                                            <th>Brand</th>
+                                            <th>Number of Leases</th>
+                                            <th>Revenue Generated from Leasing</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                                            <tr>
+                                                <td>
+                                                    <?php echo $row['Brand']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['Number of Leases']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['Revenue Generated from Leasing']; ?>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
