@@ -169,28 +169,30 @@ $result = mysqli_query($con, $sql);
                                     <thead class="">
                                         <tr>
                                             <th>License Plate</th>
-                                            <th>Zipcode</th>
-                                            <th>District</th>
-                                            <th>Transmission</th>
                                             <th>Client ID</th>
-                                            <th>Price Per Day</th>
                                             <th>Model ID</th>
-                                            <th>Model Year</th>
+                                            <th>Price Per Day</th>
+                                            <th>Transmission</th>
+                                            <th>Year of Car</th>
+                                            <th>Seat</th>
                                             <th>Color</th>
+                                            <th>District</th>
+                                            <th>Zipcode</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php while($row = mysqli_fetch_assoc($result)) { ?>
                                         <tr>
                                             <td><?php echo $row['license_plate']; ?></td>
-                                            <td><?php echo $row['zipcode']; ?></td>
-                                            <td><?php echo $row['district']; ?></td>
-                                            <td><?php echo $row['transmission']; ?></td>
                                             <td><?php echo $row['client_id']; ?></td>
-                                            <td><?php echo $row['price_per_day']; ?></td>
                                             <td><?php echo $row['model_id']; ?></td>
+                                            <td><?php echo $row['price_per_day']; ?></td>
+                                            <td><?php echo $row['transmission']; ?></td>
                                             <td><?php echo $row['year_car']; ?></td>
+                                            <td><?php echo $row['seat']; ?></td>
                                             <td><?php echo $row['color']; ?></td>
+                                            <td><?php echo $row['district']; ?></td>
+                                            <td><?php echo $row['zipcode']; ?></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

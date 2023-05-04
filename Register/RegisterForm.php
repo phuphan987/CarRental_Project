@@ -1,9 +1,9 @@
 <?php
 session_start();
-$con=mysqli_connect("localhost","root","","CarRental_DB");
+$con = mysqli_connect("localhost", "root", "", "CarRental_DB");
 // Check connection
 if (mysqli_connect_errno()) {
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 ?>
 
@@ -55,6 +55,34 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
                             <h2 class="title text-uppercase fs-4">Create Account</h2>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <?php if (isset($_SESSION['error'])) { ?>
+                            <div class="regis-error alert alert-danger mt-1" role="alert">
+                                <?php
+                                echo $_SESSION['error'];
+                                unset($_SESSION['error']);
+                                ?>
+                            </div>
+                            <?php } ?>
+                            <?php if (isset($_SESSION['success'])) { ?>
+                            <div class="regis-error alert alert-success" role="alert">
+                                <?php
+                                echo $_SESSION['success'];
+                                unset($_SESSION['success']);
+                                ?>
+                            </div>
+                            <?php } ?>
+                            <?php if (isset($_SESSION['warning'])) { ?>
+                            <div class="regis-error alert alert-warning mt-1" role="alert">
+                                <?php
+                                echo $_SESSION['warning'];
+                                unset($_SESSION['warning']);
+                                ?>
+                            </div>
+                            <?php } ?>
+                        </td>
+                    </tr>
                     <tr class="regis-info">
                         <td><span class="ms-4 me-3"><i class="fa-solid fa-envelope"></i></span></td>
                         <td><input class="regis-input fs-6" name="email" type="text" id="email" size="52" value=""
@@ -67,15 +95,15 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
                     </tr>
                     <tr class="regis-info">
                         <td><span class="ms-4 me-3"><i class="fa-solid fa-lock"></i></span></td>
-                        <td><input class="regis-input fs-6" name="repassword" type="password" id="repassword" size="52"
+                        <td><input class="regis-input fs-6" name="c_password" type="password" id="c_password" size="52"
                                 value="" maxlength="30" placeholder="Confirm Password"></td>
                     </tr>
                     <tr class="regis-info">
                         <td><span class="ms-4 me-3"><i class="fa-solid fa-user"></i></span></td>
-                        <td><input class="regis-input regis-name me-1" name="FirstName" type="text" id="FirstName" size="22"
-                                value="" maxlength="30" placeholder="First Name"></td>
-                        <td><input class="regis-input regis-name" name="LastName" type="text" id="LastName" size="22" value=""
-                                maxlength="30" placeholder="Last Name"></td>
+                        <td><input class="regis-input regis-name me-1" name="firstname" type="text" id="firstname"
+                                size="22" value="" maxlength="30" placeholder="First Name"></td>
+                        <td><input class="regis-input regis-name" name="lastname" type="text" id="lastname" size="22"
+                                value="" maxlength="30" placeholder="Last Name"></td>
                     </tr>
                     <tr class="regis-info">
                         <td><span class="ms-4 me-3"><i class="fa-solid fa-phone"></i></span></td>

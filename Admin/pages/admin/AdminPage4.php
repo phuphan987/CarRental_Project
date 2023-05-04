@@ -168,16 +168,16 @@ $result = mysqli_query($con, $sql);
                                     <thead class="">
                                         <tr>
                                             <th>Model ID</th>
+                                            <th>Model Name</th>
                                             <th>Brand</th>
-                                            <th>Seat</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php while($row = mysqli_fetch_assoc($result)) { ?>
                                         <tr>
                                             <td><?php echo $row['model_id']; ?></td>
+                                            <td><?php echo $row['model_name']; ?></td>
                                             <td><?php echo $row['brand']; ?></td>
-                                            <td><?php echo $row['seat']; ?></td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

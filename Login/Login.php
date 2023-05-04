@@ -23,7 +23,7 @@ if($count == 1){
   $_SESSION['user_email'] = $row['email'];
 
   // Check if the email belongs to the admin
-  if ($email == 'admin@example.com') {
+  if ($email == 'admin@carrental.com') {
     $_SESSION['user_role'] = 'admin';
   } else {
     $_SESSION['user_role'] = 'user';
@@ -31,12 +31,12 @@ if($count == 1){
 
   // Redirect to the appropriate page based on the user's role
   if ($_SESSION['user_role'] == 'admin') {
-    header("Location: ../Admin/AdminPage.php");
+    header("Location: ../Admin/AdminHome.php");
   } else {
     header("Location: ../index.html");
   }
 } else {
-    $_SESSION['error'] = 'Invalid Email or Password';
+    $_SESSION['error'] = 'Invalid Email or Password.';
     header("location: LoginForm.php");
 }
 mysqli_close($con);

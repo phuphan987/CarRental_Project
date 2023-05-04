@@ -186,7 +186,7 @@ $result = mysqli_query($con, $sql);
                                         <?php while($row = mysqli_fetch_assoc($result)) { ?>
                                         <tr>
                                             <td><?php echo $row['client_id']; ?></td>
-                                            <td><?php echo $row['driving_license_No']; ?></td>
+                                            <td><?php echo $row['driving_license_no']; ?></td>
                                             <td><?php echo $row['fname']; ?></td>
                                             <td><?php echo $row['lname']; ?></td>
                                             <td><?php echo $row['dateofbirth']; ?></td>
