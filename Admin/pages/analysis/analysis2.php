@@ -5,6 +5,14 @@ $con = mysqli_connect("localhost", "root", "", "CarRental_DB");
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
+
+$sql = "SELECT a.province AS Province, a.district AS District, COUNT(r.rental_id) AS 'Total Number of Rentals'
+FROM rent_info r
+INNER JOIN car_info c ON r.license_plate = c.license_plate
+INNER JOIN address a ON c.zipcode = a.zipcode AND c.district = a.district
+GROUP BY a.province, a.district
+ORDER BY COUNT(r.rental_id) DESC;";
+$result = mysqli_query($con, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +61,8 @@ if (mysqli_connect_errno()) {
                 </div>
 
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <li class="nav-item menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -156,9 +165,36 @@ if (mysqli_connect_errno()) {
                 <div class="container-fluid">
                     <div class="mb-2">
                         <div>
-                            <h1 class="m-0">Client</h1>
+                            <h3 class="ml-2 mb-3">Most car rental locations</h3>
+                            <div class="table-responsive-md">
+                                <table class="table table-striped table-bordered">
+                                    <thead class="">
+                                        <tr>
+                                            <th>Province</th>
+                                            <th>District</th>
+                                            <th>Total Number of Rentals</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                                            <tr>
+                                                <td>
+                                                    <?php echo $row['Province']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['District']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['Total Number of Rentals']; ?>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -172,3 +208,7 @@ if (mysqli_connect_errno()) {
 </body>
 
 </html>
+
+<?php
+mysqli_close($con);
+?>

@@ -5,6 +5,25 @@ $con = mysqli_connect("localhost", "root", "", "CarRental_DB");
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
+
+$sql = "SELECT CASE 
+WHEN TIMESTAMPDIFF(YEAR, c.dateofbirth, CURDATE()) BETWEEN 18 AND 23 THEN '18-23'
+WHEN TIMESTAMPDIFF(YEAR, c.dateofbirth, CURDATE()) BETWEEN 24 AND 29 THEN '24-29'
+WHEN TIMESTAMPDIFF(YEAR, c.dateofbirth, CURDATE()) BETWEEN 30 AND 35 THEN '30-35'
+WHEN TIMESTAMPDIFF(YEAR, c.dateofbirth, CURDATE()) BETWEEN 36 AND 41 THEN '36-41'
+WHEN TIMESTAMPDIFF(YEAR, c.dateofbirth, CURDATE()) BETWEEN 42 AND 47 THEN '42-47'
+WHEN TIMESTAMPDIFF(YEAR, c.dateofbirth, CURDATE()) BETWEEN 48 AND 53 THEN '48-53'
+WHEN TIMESTAMPDIFF(YEAR, c.dateofbirth, CURDATE()) BETWEEN 54 AND 59 THEN '54-59'
+ELSE '60+'
+END AS Age_Group,
+COUNT(r.rental_id) AS 'Number of Leases',
+SUM(DATEDIFF(r.end_date, r.start_date) * ci.price_per_day) AS 'Revenue Generated from Leasing'
+FROM client c
+INNER JOIN rent_info r ON c.client_id = r.client_id
+INNER JOIN car_info ci ON r.license_plate = ci.license_plate
+GROUP BY Age_Group
+ORDER BY FIELD(Age_Group, '18-23', '24-29', '30-35', '36-41', '42-47', '48-53', '54-59', '60+');";
+$result = mysqli_query($con, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +72,8 @@ if (mysqli_connect_errno()) {
                 </div>
 
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <li class="nav-item menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -156,9 +176,36 @@ if (mysqli_connect_errno()) {
                 <div class="container-fluid">
                     <div class="mb-2">
                         <div>
-                            <h1 class="m-0">Client</h1>
+                            <h3 class="ml-2 mb-3">Income and total leasing from each age group</h3>
+                            <div class="table-responsive-md">
+                                <table class="table table-striped table-bordered">
+                                    <thead class="">
+                                        <tr>
+                                            <th>Age</th>
+                                            <th>Number of Leases</th>
+                                            <th>Revenue Generated from Leasing</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                                        <tr>
+                                            <td>
+                                                <?php echo $row['Age_Group']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['Number of Leases']; ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $row['Revenue Generated from Leasing']; ?>
+                                            </td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -172,3 +219,7 @@ if (mysqli_connect_errno()) {
 </body>
 
 </html>
+
+<?php
+mysqli_close($con);
+?>

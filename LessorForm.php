@@ -22,21 +22,17 @@ if (mysqli_connect_errno()) {
 </head>
 
 <body>
-    <?php include 'navbaruser.php';?>
+    <?php include 'navbarclient.php';?>
 
     <div class="container-md mt-5 pt-5 d-flex justify-content-center align-items-center">
         <div class="row rounded bg-white">
 
-            <div class="login-left col d-flex justify-content-center align-items-center rounded-start">
-                <img src="img/logo.png" alt="login-image" class="login-img">
-            </div>
-
             <div class="login-right col align-items-center justify-content-center pt-5 pb-4 rounded-end">
                 <div>
                     <div class="mb-1 text-center">
-                        <h2 class="title text-uppercase fs-5">Account Login</h2>
+                        <h2 class="title text-uppercase fs-5">Lessor Registration</h2>
                     </div>
-                    <form name="inpfrm" method="post" action="Login.php">
+                    <form name="inpfrm" method="post" action="Lessor.php">
                         <?php if (isset($_SESSION['error'])) { ?>
                             <div class="login-incorrect alert alert-danger mb-0 mt-4" role="alert">
                                 <?php
@@ -47,27 +43,26 @@ if (mysqli_connect_errno()) {
                         <?php } ?>
                         <table class="login-table">
                             <tr class="login-info">
-                                <td><span class="ms-4 me-3"><i class="fa-solid fa-envelope fa-lg"></i></span></td>
-                                <td><input class="login-input fs-6 ps-4" name="email" type="text" id="email" placeholder="Email" size="40"></td>
+                                <td><span class="ms-4 me-3"><i class="fa-solid fa-money-check fa-lg" style="color: #fe6722;"></i></i></span></td>
+                                <td><input class="login-input fs-6 ps-4" name="banknumber" type="text" id="banknumber" placeholder="Bank Account Number" size="40"></td>
                             </tr>
                             <tr class="login-info">
-                                <td><span class="ms-4 me-3"><i class="fa-solid fa-lock fa-lg"></i></span></td>
-                                <td><input class="login-input fs-6 ps-4" name="password" type="password" id="password" placeholder="Password" size="40"></td>
+                                <td><span class="ms-4 me-3 pe-1"><i class="fa-solid fa-building-columns fa-lg" style="color: #fe6722;"></span></td>
+                                <td><input class="login-input fs-6 ps-4" name="bankname" type="textt" id="bankname" placeholder="Bank Account Name" size="40"></td>
                             </tr>
                             <tr class="login-submit mt-4">
-                                <td><input class="login-submit-btn text-uppercase text-white fs-6" name="INSERT" type="submit" id="INSERT" value="LOGIN" /></td>
-                            </tr>
-                            <tr class="login-signup d-flex justify-content-center mt-3 mb-1">
-                                <td>
-                                    <div class="text-muted fs-7">Don't have an account? <a href="RegisterForm.php">Sign
-                                            up</a></div>
-                                </td>
+                                <td><input class="login-submit-btn text-uppercase text-white fs-6" name="INSERT" type="submit" id="INSERT" value="SAVE" /></td>
                             </tr>
                         </table>
                     </form>
                 </div>
 
             </div>
+
+            <div class="login-left col d-flex justify-content-center align-items-center border-start">
+                <img src="img/lessor-logo.jpg" alt="lessor-image" class="login-img">
+            </div>
+
         </div>
     </div>
     </div>

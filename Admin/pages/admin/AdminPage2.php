@@ -160,7 +160,7 @@ $result = mysqli_query($con, $sql);
                 <div class="container-fluid">
                     <div class="mb-2">
                         <div>
-                            <h1 class="ml-2 mb-3">Rent Information Table</h1>
+                            <h3 class="ml-2 mb-3">Rent Information Table</h3>
                             <div class="table-responsive-md">
                                 <table class="table table-striped table-bordered">
                                     <thead class="">

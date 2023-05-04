@@ -166,7 +166,7 @@ $result = mysqli_query($con, $sql);
                 <div class="container-fluid">
                     <div class="mb-2">
                         <div>
-                            <h1 class="ml-2 mb-3">Advanced Analysis Report 1</h1>
+                            <h3 class="ml-2 mb-3">Top rented car brands</h3>
                             <div class="table-responsive-md">
                                 <table class="table table-striped table-bordered">
                                     <thead class="">
@@ -209,3 +209,7 @@ $result = mysqli_query($con, $sql);
 </body>
 
 </html>
+
+<?php
+mysqli_close($con);
+?>

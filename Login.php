@@ -34,8 +34,9 @@ if($count == 1){
     header("Location: Admin/AdminHome.php");
     $_SESSION['loggedIn'] = true;
   } else {
-    header("Location: index.php");
     $_SESSION['loggedIn'] = true;
+    $_SESSION['email'] = $email;
+    header("Location: index.php");
   }
 } else {
     $_SESSION['error'] = 'Invalid Email or Password.';

@@ -116,6 +116,16 @@ input:focus {
     color: #fe6722;
 }
 
+.regis-login a {
+    color: #fe6722;
+    text-decoration: none;
+}
+
+.regis-login a:hover {
+    color: #7b2700;
+    text-decoration: underline;
+}
+
 @media (max-width: 768px) {
     .regis-table {
         max-width: 360px;

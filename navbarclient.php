@@ -21,13 +21,13 @@
                 <li> <a href="index.php"> Home</a> </li>
                 <li> <a href="aboutUs.php"> About</a> </li>
                 <li> <a href="contact.php"> Contact</a> </li>
-                <li id="menu-signup"> <a href="#"> Rent out</a> </li>
+                <li id="menu-signup"> <a href="LessorForm.php"> Rent out</a> </li>
                 <li id="menu-signup"> <a href="#"> My profile</a> </li>
                 <li id="menu-signup"> <a href="#"> My rental car</a> </li>
                 <li id="menu-signup"> <a href="logout.php"> Log out</a> </li>
             </ul>
             <div class="nav-right">
-                <button class="login-button">Rent out</button>
+                <a href="LessorForm.php"><button class="login-button">Rent out</button></a>
                 <div class="profile-dropdown"> 
                     <div class="profile" onclick="menuToggle();">
                         <img src="img/icon/icons8-male-user-48.png" />

@@ -14,7 +14,10 @@ $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $tel_no = $_POST['phone'];
 $gender = $_POST['gender'];
-$my_date = $_POST['date'];
+$day = $_POST['day'];
+$month = $_POST['month'];
+$year = $_POST['year'];
+$my_date = $year . '-' . date('m', strtotime($month)) . '-' . str_pad($day, 2, '0', STR_PAD_LEFT);
 
 if (empty($email)) {
     $_SESSION['error'] = 'Please enter your email.';
@@ -43,8 +46,8 @@ if (empty($email)) {
 } else if (empty($gender)) {
     $_SESSION['error'] = 'Please select your gender.';
     header("location: RegisterForm.php");
-} else if (empty($my_date)) {
-    $_SESSION['error'] = 'Please enter your birthday.';
+} else if (!checkdate(date('m', strtotime($month)), $day, $year)) {
+    $_SESSION['error'] = 'Invalid date of birth.';
     header("location: RegisterForm.php");
 } else if (empty($_POST['interestedcar'])) {
     $_SESSION['error'] = 'Please select the car you are interested in.';
