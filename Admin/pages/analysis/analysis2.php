@@ -28,7 +28,7 @@ if (mysqli_connect_errno()) {
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Home</a>
+                    <a href="../../AdminHome.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -38,7 +38,7 @@ if (mysqli_connect_errno()) {
 
         <aside class="main-sidebar sidebar-dark-orange elevation-4">
 
-            <a href="../../AdminPage.php" class="brand-link">
+            <a href="../../AdminHome.php" class="brand-link">
                 <i class="fa-solid fa-car-side fa-lg ml-3 mr-1"></i>
                 <span class="brand-text font-weight-light">Car Rental</span>
             </a>

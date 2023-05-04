@@ -5,6 +5,9 @@ $con = mysqli_connect("localhost", "root", "", "CarRental_DB");
 if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
+
+$sql = "SELECT * FROM credit_card_client";
+$result = mysqli_query($con, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +31,7 @@ if (mysqli_connect_errno()) {
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Home</a>
+                    <a href="../../AdminHome.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -38,7 +41,7 @@ if (mysqli_connect_errno()) {
 
         <aside class="main-sidebar sidebar-dark-orange elevation-4">
 
-            <a href="../../AdminPage.php" class="brand-link">
+            <a href="../../AdminHome.php" class="brand-link">
                 <i class="fa-solid fa-car-side fa-lg ml-3 mr-1"></i>
                 <span class="brand-text font-weight-light">Car Rental</span>
             </a>
@@ -159,9 +162,34 @@ if (mysqli_connect_errno()) {
                 <div class="container-fluid">
                     <div class="mb-2">
                         <div>
-                            <h1 class="m-0">Client</h1>
+                            <h1 class="ml-2 mb-3">Credit card Client Table</h1>
+                            <div class="table-responsive-md">
+                                <table class="table table-striped table-bordered">
+                                    <thead class="">
+                                        <tr>
+                                            <th>Credit card ID</th>
+                                            <th>Client ID</th>
+                                            <th>Expires</th>
+                                            <th>Card type</th>
+                                            <th>CVV</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($row = mysqli_fetch_assoc($result)) { ?>
+                                        <tr>
+                                            <td><?php echo $row['credit_card_id']; ?></td>
+                                            <td><?php echo $row['client_id']; ?></td>
+                                            <td><?php echo $row['expires']; ?></td>
+                                            <td><?php echo $row['card_type']; ?></td>
+                                            <td><?php echo $row['cvv']; ?></td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -175,3 +203,7 @@ if (mysqli_connect_errno()) {
 </body>
 
 </html>
+
+<?php
+mysqli_close($con);
+?>

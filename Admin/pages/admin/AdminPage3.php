@@ -5,6 +5,9 @@ $con=mysqli_connect("localhost","root","","CarRental_DB");
 if (mysqli_connect_errno()) {
 echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
+
+$sql = "SELECT * FROM car_info";
+$result = mysqli_query($con, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +31,7 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Home</a>
+                    <a href="../../AdminHome.php" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -38,7 +41,7 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
         <aside class="main-sidebar sidebar-dark-orange elevation-4">
 
-            <a href="../../AdminPage.php" class="brand-link">
+            <a href="../../AdminHome.php" class="brand-link">
                 <i class="fa-solid fa-car-side fa-lg ml-3 mr-1"></i>
                 <span class="brand-text font-weight-light">Car Rental</span>
             </a>
@@ -160,9 +163,42 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
                 <div class="container-fluid">
                     <div class="mb-2">
                         <div>
-                            <h1 class="m-0">Client</h1>
+                            <h1 class="ml-2 mb-3">Car Information Table</h1>
+                            <div class="table-responsive-md">
+                                <table class="table table-striped table-bordered">
+                                    <thead class="">
+                                        <tr>
+                                            <th>License Plate</th>
+                                            <th>Zipcode</th>
+                                            <th>District</th>
+                                            <th>Transmission</th>
+                                            <th>Client ID</th>
+                                            <th>Price Per Day</th>
+                                            <th>Model ID</th>
+                                            <th>Model Year</th>
+                                            <th>Color</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($row = mysqli_fetch_assoc($result)) { ?>
+                                        <tr>
+                                            <td><?php echo $row['license_plate']; ?></td>
+                                            <td><?php echo $row['zipcode']; ?></td>
+                                            <td><?php echo $row['district']; ?></td>
+                                            <td><?php echo $row['transmission']; ?></td>
+                                            <td><?php echo $row['client_id']; ?></td>
+                                            <td><?php echo $row['price_per_day']; ?></td>
+                                            <td><?php echo $row['model_id']; ?></td>
+                                            <td><?php echo $row['year_car']; ?></td>
+                                            <td><?php echo $row['color']; ?></td>
+                                        </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -176,3 +212,7 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
 </body>
 
 </html>
+
+<?php
+mysqli_close($con);
+?>
