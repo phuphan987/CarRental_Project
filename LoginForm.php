@@ -15,42 +15,20 @@ if (mysqli_connect_errno()) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/login.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/b33e8d6cbf.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <nav class="bg-dark mb-5">
-        <div class="navbar container-md bg-dark">
-            <div class="nav-logo">
-                <a href="#"> Car Rental</a>
-            </div>
-            <hl class="nav-menu" id="myMenu">
-                <li> <a href="#"> Home</a> </li>
-                <li> <a href="#"> About</a> </li>
-                <li> <a href="#"> Contact</a> </li>
-                <li id="menu-login"> <a href="#"> Log In</a> </li>
-                <li id="menu-signup"> <a href="#"> Sign up</a> </li>
-            </hl>
-            <div class="nav-login" id="mylogin">
-                <button class="login-button">Log In</button>
-                <button class="signup-button">Sign up</button>
-            </div>
-            <div class="ham-menu" onclick="toggleHam(this)">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-        </div>
-    </nav>
+    <?php include 'navbaruser.php';?>
 
     <div class="container-md mt-5 pt-5 d-flex justify-content-center align-items-center">
         <div class="row rounded bg-white">
 
             <div class="login-left col d-flex justify-content-center align-items-center rounded-start">
-                <img src="../img/logo.png" alt="login-image" class="login-img">
+                <img src="img/logo.png" alt="login-image" class="login-img">
             </div>
 
             <div class="login-right col align-items-center justify-content-center pt-5 pb-4 rounded-end">
@@ -81,7 +59,7 @@ if (mysqli_connect_errno()) {
                             </tr>
                             <tr class="login-signup d-flex justify-content-center mt-3 mb-1">
                                 <td>
-                                    <div class="text-muted fs-7">Don't have an account? <a href="SignupForm.php">Sign
+                                    <div class="text-muted fs-7">Don't have an account? <a href="RegisterForm.php">Sign
                                             up</a></div>
                                 </td>
                             </tr>
@@ -94,7 +72,7 @@ if (mysqli_connect_errno()) {
     </div>
     </div>
 
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
 

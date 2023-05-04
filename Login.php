@@ -31,9 +31,11 @@ if($count == 1){
 
   // Redirect to the appropriate page based on the user's role
   if ($_SESSION['user_role'] == 'admin') {
-    header("Location: ../Admin/AdminHome.php");
+    header("Location: Admin/AdminHome.php");
+    $_SESSION['loggedIn'] = true;
   } else {
-    header("Location: ../index.html");
+    header("Location: index.php");
+    $_SESSION['loggedIn'] = true;
   }
 } else {
     $_SESSION['error'] = 'Invalid Email or Password.';

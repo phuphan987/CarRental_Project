@@ -33,9 +33,6 @@ $result = mysqli_query($con, $sql);
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="AdminHome.php" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
             </ul>
         </nav>
 
@@ -146,7 +143,7 @@ $result = mysqli_query($con, $sql);
                         </li>
 
                         <li class="nav-item">
-                            <a href="../Logout/Logout.php" class="nav-link">
+                            <a href="../Logout.php" class="nav-link">
                                 <i class="nav-icon fa-solid fa-right-from-bracket"></i>
                                 <p>
                                     Log Out

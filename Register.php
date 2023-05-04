@@ -58,11 +58,6 @@ if (empty($email)) {
         $result = mysqli_query($con,$check_email);
         $row = mysqli_fetch_assoc($result);
 
-        // $check_email = $con->prepare("SELECT email FROM client WHERE email = :email");
-        // $check_email->bindParam(":email", $email);
-        // $check_email->execute();
-        // $row = $check_email->fetch(PDO::FETCH_ASSOC);
-
         if ($row['email'] == $email) {
             $_SESSION['warning'] = "The email has already been taken.";
             header("location: RegisterForm.php");
@@ -85,7 +80,7 @@ if (empty($email)) {
 
             }
 
-            $_SESSION['success'] = "You have Successfully Subscribed! <a href='../Login/LoginForm.php' class='alert-link'>Click Here!</a> to Login";
+            $_SESSION['success'] = "You have Successfully Subscribed! <a href='LoginForm.php' class='alert-link'>Click Here!</a> to Login";
             header("location: RegisterForm.php");
         } else {
             $_SESSION['error'] = "Something went wrong";

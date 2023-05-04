@@ -15,38 +15,16 @@ if (mysqli_connect_errno()) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Form</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/register.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="https://kit.fontawesome.com/b33e8d6cbf.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <nav class="bg-dark mb-4">
-        <div class="navbar container-md bg-dark">
-            <div class="nav-logo">
-                <a href="#"> Car Rental</a>
-            </div>
-            <hl class="nav-menu" id="myMenu">
-                <li> <a href="#"> Home</a> </li>
-                <li> <a href="#"> About</a> </li>
-                <li> <a href="#"> Contact</a> </li>
-                <li id="menu-login"> <a href="#"> Log In</a> </li>
-                <li id="menu-signup"> <a href="#"> Sign up</a> </li>
-            </hl>
-            <div class="nav-login" id="mylogin">
-                <button class="login-button">Log In</button>
-                <button class="signup-button">Sign up</button>
-            </div>
-            <div class="ham-menu" onclick="toggleHam(this)">
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-        </div>
-    </nav>
+    <?php include 'navbaruser.php'; ?>
 
-    <div class="container-md d-flex justify-content-center align-items-center">
+    <div class="container-md d-flex justify-content-center align-items-center mt-4">
         <div class="regis-table p-4 border rounded border-dark bg-white">
             <form class="d-flex justify-content-center" name="inpfrm" method="post" action="Register.php">
                 <table>
@@ -151,7 +129,7 @@ if (mysqli_connect_errno()) {
         </div>
     </div>
 
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
 
