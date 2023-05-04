@@ -194,7 +194,7 @@ $result = mysqli_query($con, $sql);
                                             <td><?php echo $row['email']; ?></td>
                                             <td><?php echo $row['password']; ?></td>
                                             <td><?php echo $row['tel_no']; ?></td>
-                                            <td><?php echo $row['lessor_id']; ?></td>
+                                            <td><?php echo $row['lessor_state']; ?></td>
                                             <td><?php echo $row['banking_account']; ?></td>
                                             <td><?php echo $row['bank_name']; ?></td>
                                         </tr>
