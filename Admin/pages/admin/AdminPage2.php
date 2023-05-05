@@ -1,10 +1,6 @@
 <?php
 session_start();
-$con=mysqli_connect("localhost","root","","CarRental_DB");
-// Check connection
-if (mysqli_connect_errno()) {
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+include('../../../server.php');
 
 $sql = "SELECT * FROM rent_info";
 $result = mysqli_query($con, $sql);

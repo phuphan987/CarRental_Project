@@ -1,10 +1,6 @@
 <?php
 session_start();
-$con = mysqli_connect("localhost", "root", "", "CarRental_DB");
-// Check connection
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+include('../../../server.php');
 
 $sql = "SELECT b.brand AS Brand, COUNT(r.rental_id) AS 'Number of Leases', 
 SUM(DATEDIFF(r.end_date, r.start_date) * c.price_per_day) AS 'Revenue Generated from Leasing'

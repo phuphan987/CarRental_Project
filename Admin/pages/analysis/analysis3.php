@@ -1,10 +1,6 @@
 <?php
 session_start();
-$con = mysqli_connect("localhost", "root", "", "CarRental_DB");
-// Check connection
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
+include('../../../server.php');
 
 $sql = "SELECT CASE 
 WHEN TIMESTAMPDIFF(YEAR, c.dateofbirth, CURDATE()) BETWEEN 18 AND 23 THEN '18-23'
