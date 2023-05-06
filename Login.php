@@ -15,8 +15,9 @@ $count = mysqli_num_rows($result);
 
 if($count == 1){
   $row = mysqli_fetch_assoc($result);
-  $_SESSION['user_id'] = $row['id'];
-  $_SESSION['user_email'] = $row['email'];
+  $fname = $row['fname'];
+  $lname = $row['lname'];
+  $lessor_state = $row['lessor_state'];
 
   // Check if the email belongs to the admin
   if ($email == 'admin@carrental.com') {
@@ -32,6 +33,9 @@ if($count == 1){
   } else {
     $_SESSION['loggedIn'] = true;
     $_SESSION['email'] = $email;
+    $_SESSION['fname'] = $fname;
+    $_SESSION['lname'] = $lname;
+    $_SESSION['lessor_state'] = $lessor_state;
     header("Location: index.php");
   }
 } else {

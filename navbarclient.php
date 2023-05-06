@@ -1,5 +1,10 @@
 <?php
     include('server.php');
+
+    $email = $_SESSION['email'];
+    $fname = $_SESSION['fname'];
+    $lname = $_SESSION['lname'];
+    $lessor_state = $_SESSION['lessor_state'];
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +39,12 @@
                         <img src="img/icon/icons8-sort-down-30.png" width="20px" height ="20px" style="margin:auto 0;"/>
                     </div>
                     <div class="menu">
-                        <h3>Someone Famous<br /></h3>
+                        <h3><?php echo $fname, ' ' ,$lname ?><br /></h3>
                         <ul>
                             <li> <img src="img/icon/user-avatar.png" /><a href="#">My profile</a> </li>
-                            <li> <img src="img/icon/car.png" /><a href="#">My rental car</a> </li>
+                            <?php if ($lessor_state) { ?>
+                             <li> <img src="img/icon/car.png" /><a href="#">My rental car</a> </li>
+                             <?php } ?>
                             <li> <img src="img/icon/exit.png" width="15px" height="15px" style="margin-left: 3px;"/><a href="Logout.php">Log out</a></li>
                         </ul>
                     </div>
