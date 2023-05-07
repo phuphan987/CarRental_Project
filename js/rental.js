@@ -103,3 +103,31 @@ timePicker1.addEventListener("change", function () {
 timePicker2.addEventListener("change", function () {
     timePicker1.value = timePicker2.value;
 });
+
+// const openPopupButton = document.getElementById("open-popup");
+// const closePopupButton = document.getElementById("close-popup");
+// const popupContainer = document.getElementById("popup-container");
+// const body = document.getElementsByTagName("body")[0];
+
+// openPopupButton.addEventListener("click", () => {
+//     popupContainer.style.display = "block";
+//     body.style.overflow = "hidden";
+// });
+
+// closePopupButton.addEventListener("click", () => {
+//     popupContainer.style.display = "none";
+//     body.style.overflow = "auto";
+// });
+
+document.getElementById("card-select").addEventListener("change", function() {
+  if (this.value === "new_card") {
+    document.getElementById("new-card-fields3").style.display = "block";
+    document.getElementById("new-card-fields2").style.display = "none";
+  } else {
+    document.getElementById("new-card-fields3").style.display = "none";
+    document.getElementById("new-card-fields2").style.display = "block";
+  }
+});
+
+
+

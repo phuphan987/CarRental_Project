@@ -34,6 +34,7 @@ body {
 
 .regis-error {
     width: 550px;
+    margin-bottom: 0px !important;
 }
 
 .regis-table {
@@ -55,7 +56,7 @@ tbody {
 .regis-input {
     display: block;
     width: 100%;
-    height: 40px;
+    height: 35px;
     padding: 0 5px 0 20px;
 }
 

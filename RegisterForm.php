@@ -20,7 +20,7 @@ include('server.php');
 <body>
     <?php include 'navbaruser.php'; ?>
 
-    <div class="container-md d-flex justify-content-center align-items-center mt-4">
+    <div class="container-md d-flex justify-content-center align-items-center mt-3" style="height: 90vh;">
         <div class="regis-table p-4 border rounded border-dark bg-white">
             <form class="d-flex justify-content-center" name="inpfrm" method="post" action="Register.php">
                 <table>
@@ -40,7 +40,7 @@ include('server.php');
                                 </div>
                             <?php } ?>
                             <?php if (isset($_SESSION['success'])) { ?>
-                                <div class="regis-error alert alert-success" role="alert">
+                                <div class="regis-error alert alert-success mt-1" role="alert">
                                     <?php
                                     echo $_SESSION['success'];
                                     unset($_SESSION['success']);
@@ -150,7 +150,7 @@ include('server.php');
                         <td><input class="regis-submit-btn text-uppercase text-white fs-6" name="INSERT" type="submit"
                                 id="INSERT" value="Register" /></td>
                     </tr>
-                    <tr class="regis-submit mt-3">
+                    <tr class="regis-submit mt-2">
                         <td>
                             <div class="regis-login text-muted fs-7">Already have an account? <a
                                     href="LoginForm.php">Login</a></div>

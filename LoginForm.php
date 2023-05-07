@@ -20,7 +20,7 @@ include('server.php');
 <body>
     <?php include 'navbaruser.php';?>
 
-    <div class="container-md mt-5 pt-5 d-flex justify-content-center align-items-center">
+    <div class="container-md d-flex justify-content-center align-items-center" style="height: 85vh;">
         <div class="row rounded bg-white">
 
             <div class="login-left col d-flex justify-content-center align-items-center rounded-start">

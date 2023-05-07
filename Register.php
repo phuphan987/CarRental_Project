@@ -56,6 +56,8 @@ if (empty($email)) {
         $check_email = "SELECT email FROM client WHERE email='$email'";
         $result = mysqli_query($con,$check_email);
         $row = mysqli_fetch_assoc($result);
+        $_SESSION['warning'] = $row['email'];
+        header("location: RegisterForm.php");
 
         if ($row['email'] == $email) {
             $_SESSION['warning'] = "The email has already been taken.";

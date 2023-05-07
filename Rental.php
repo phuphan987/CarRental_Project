@@ -3,7 +3,10 @@ session_start();
 $loggedIn = isset($_SESSION['loggedIn']) ? $_SESSION['loggedIn'] : false;
 include('server.php');
 
-$query1 = "SELECT * FROM car_info WHERE license_plate = 'aaa'";
+$_SESSION['license_plate'] = 'aaa'; // สมมติว่า $_SESSION['license_plate'] ส่ง 'aaa' เข้ามา
+
+$license_plate = $_SESSION['license_plate'];
+$query1 = "SELECT * FROM car_info WHERE license_plate = '$license_plate'";
 $result = mysqli_query($con, $query1);
 $car_row = mysqli_fetch_assoc($result);
 $license_plate = $car_row['license_plate'];
