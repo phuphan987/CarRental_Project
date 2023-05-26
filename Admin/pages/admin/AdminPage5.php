@@ -44,10 +44,10 @@ $result = mysqli_query($con, $sql);
 
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../../dist/img/adminohm.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <span class="d-block text-white">Admin OHM</span>
+                        <span class="d-block text-white">Admin</span>
                     </div>
                 </div>
 

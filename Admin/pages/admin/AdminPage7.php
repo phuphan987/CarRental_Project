@@ -44,15 +44,16 @@ $result = mysqli_query($con, $sql);
 
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../../dist/img/adminohm.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="../../dist/img/avatar5.png" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <span class="d-block text-white">Admin OHM</span>
+                        <span class="d-block text-white">Admin</span>
                     </div>
                 </div>
 
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <li class="nav-item menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -160,6 +161,7 @@ $result = mysqli_query($con, $sql);
                                 <table class="table table-striped table-bordered">
                                     <thead class="">
                                         <tr>
+                                            <th class="text-center">Action</th>
                                             <th>Credit card ID</th>
                                             <th>Client ID</th>
                                             <th>Expires</th>
@@ -168,14 +170,27 @@ $result = mysqli_query($con, $sql);
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php while($row = mysqli_fetch_assoc($result)) { ?>
-                                        <tr>
-                                            <td><?php echo $row['credit_card_id']; ?></td>
-                                            <td><?php echo $row['client_id']; ?></td>
-                                            <td><?php echo $row['expires']; ?></td>
-                                            <td><?php echo $row['card_type']; ?></td>
-                                            <td><?php echo $row['cvv']; ?></td>
-                                        </tr>
+                                        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+                                            <tr>
+                                                <td class="d-flex justify-content-center"><button class="btn btn-danger" style="height:40px;"
+                                                        onclick="cardDelete('<?= $row['credit_card_id'] ?>')">Delete</button>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['credit_card_id']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['client_id']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['expires']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['card_type']; ?>
+                                                </td>
+                                                <td>
+                                                    <?php echo $row['cvv']; ?>
+                                                </td>
+                                            </tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>
@@ -193,7 +208,9 @@ $result = mysqli_query($con, $sql);
         <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- AdminLTE App -->
         <script src="../../dist/js/adminlte.min.js"></script>
+        <script src="../../dist/js/admincontroll.js"></script>
 </body>
+
 
 </html>
 
