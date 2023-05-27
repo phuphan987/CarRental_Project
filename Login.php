@@ -15,6 +15,7 @@ $count = mysqli_num_rows($result);
 
 if($count == 1){
   $row = mysqli_fetch_assoc($result);
+  $client_id = $row['client_id'];
   $fname = $row['fname'];
   $lname = $row['lname'];
   $lessor_state = $row['lessor_state'];
@@ -32,9 +33,10 @@ if($count == 1){
     $_SESSION['loggedIn'] = true;
   } else {
     $_SESSION['loggedIn'] = true;
+    $_SESSION['client_id'] = $client_id;
     $_SESSION['email'] = $email;
-    $_SESSION['fname'] = $fname;
     $_SESSION['lname'] = $lname;
+    $_SESSION['fname'] = $fname;
     $_SESSION['lessor_state'] = $lessor_state;
     header("Location: index.php");
   }

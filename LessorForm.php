@@ -56,7 +56,7 @@ include('server.php');
             </div>
 
             <div class="login-left col d-flex justify-content-center align-items-center border-start">
-                <img src="img/lessor-logo.jpg" alt="lessor-image" class="login-img">
+                <img src="img/component/lessor-logo.jpg" alt="lessor-image" class="login-img">
             </div>
 
         </div>

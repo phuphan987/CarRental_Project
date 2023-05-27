@@ -7,8 +7,9 @@
 
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>About Us</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
         }
     ?>
 
-    <img src="./img/car_aboutus.jpg" width="100%" height="500px" style="object-fit:cover; filter:brightness(80%);">
+    <img src="./img/component/car_aboutus.jpg" width="100%" height="500px" style="object-fit:cover; filter:brightness(80%);">
     <div class="container-sm">
         <div class="aboutus">
             <h1 style="color:#fe6721;"> About Us</h1>

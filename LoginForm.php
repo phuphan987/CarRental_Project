@@ -24,7 +24,7 @@ include('server.php');
         <div class="row rounded bg-white">
 
             <div class="login-left col d-flex justify-content-center align-items-center rounded-start">
-                <img src="img/logo.png" alt="login-image" class="login-img">
+                <img src="img/component/logo.png" alt="login-image" class="login-img">
             </div>
 
             <div class="login-right col align-items-center justify-content-center pt-5 pb-4 rounded-end">
