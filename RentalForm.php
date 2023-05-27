@@ -1,5 +1,8 @@
 <?php
 include 'Rental.php';
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'user') {
+    header("Location: LoginForm.php");
+}
 $email = $_SESSION['email'];
 $license_plate = $_SESSION['license_plate'];
 $sql1 = "SELECT start_date FROM rent_info WHERE license_plate = '$license_plate'";
@@ -52,7 +55,13 @@ $end_dates_json = json_encode($end_dates);
                     <h2 class="title text-uppercase">Rental Form</h2>
                 </div>
 
-                <img src="<?php echo $image_path; ?>" alt="car-image" class="car-img ps-2 pe-2">
+                <?php
+                if (empty($image_path)) {
+                    echo '<img src="img/default-image.jpg" alt="car-image" class="car-img ps-2 pe-2">';
+                } else {
+                    echo '<img src="' . $image_path . '" alt="car-image" class="car-img ps-2 pe-2">';
+                }
+                ?>
 
                 <div class="ps-2 pb-2 mt-4 border-bottom">
                     <h3 class="fw-bold">

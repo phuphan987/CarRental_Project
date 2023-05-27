@@ -1,6 +1,9 @@
 <?php
 session_start();
 include('../../../server.php');
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
+    header("Location: ../../../index.php");
+}
 
 $sql = "SELECT * FROM car_info";
 $result = mysqli_query($con, $sql);

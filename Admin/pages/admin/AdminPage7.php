@@ -1,6 +1,9 @@
 <?php
 session_start();
 include('../../../server.php');
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
+    header("Location: ../../../index.php");
+}
 
 $sql = "SELECT * FROM credit_card_client";
 $result = mysqli_query($con, $sql);

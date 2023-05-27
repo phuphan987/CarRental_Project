@@ -1,6 +1,9 @@
 <?php
 session_start();
 include('../../../server.php');
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
+    header("Location: ../../../index.php");
+}
 
 $sql = "SELECT b.brand AS Brand, COUNT(r.rental_id) AS 'Number of Leases', 
 SUM(DATEDIFF(r.end_date, r.start_date) * c.price_per_day) AS 'Revenue Generated from Leasing'

@@ -1,6 +1,9 @@
 <?php
 session_start();
 include('../../../server.php');
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
+    header("Location: ../../../index.php");
+}
 
 $sql = "SELECT CASE 
 WHEN TIMESTAMPDIFF(YEAR, c.dateofbirth, CURDATE()) BETWEEN 18 AND 23 THEN '18-23'

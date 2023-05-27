@@ -1,6 +1,9 @@
 <?php
 session_start();
 include('../../../server.php');
+if (!isset($_SESSION['user_role']) || $_SESSION['user_role'] != 'admin') {
+    header("Location: ../../../index.php");
+}
 
 $sql = "SELECT a.province AS Province, a.district AS District, COUNT(r.rental_id) AS 'Total Number of Rentals'
 FROM rent_info r
