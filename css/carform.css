@@ -1,0 +1,299 @@
+@font-face {
+    font-family: Ubuntu-Regular;
+    src: url('../fonts/ubuntu/Ubuntu-Regular.ttf');
+}
+
+@font-face {
+    font-family: Ubuntu-Bold;
+    src: url('../fonts/ubuntu/Ubuntu-Bold.ttf');
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: Ubuntu-Regular, sans-serif;
+}
+
+.row {
+    width: 1200px;
+}
+
+.carradio-inputs {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    width: 200px;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  
+  .carradio-inputs .carradio {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  
+  .carradio-inputs .carradio input {
+    margin-top: 23px;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .carradio-inputs .carradio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 0.4rem 0;
+    transition: all .15s ease-in-out;
+  }
+  
+  .carradio-inputs .carradio input:checked + .name {
+    background-color: #9f9f9f;
+    font-weight: 600;
+  }
+
+input[type=file] {
+    max-width: 100%;
+    cursor: pointer;
+    color: #444;
+    padding: 5px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+  }
+
+.titlecar{
+    font-family: Ubuntu-Bold, sans-serif;
+    letter-spacing: 1.25px;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 2rem;
+    color: #fe6721;
+}
+.carinsert{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 50px;
+}
+
+.carinfo {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    /* border: 1px solid #ccc;
+    border-radius: 5px; */
+    padding: 20px;
+}
+
+.caraddress{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.carboxform{
+    display: flex;
+    flex-direction: column;
+}
+
+.carboxform2{
+    display: flex;
+    flex-direction: column;    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.carinfo h1,.carboxform2 h1{
+    text-align: center;
+    font-size: 25px;
+    color: #fe6721;
+}
+
+.carinput-box-group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.carinput-box{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.carinput{
+    width: 250px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-left: 10px;
+    background-color: #f9f9f9;
+    font-size: 15px;
+}
+
+.carinput-pic{
+    width: 250px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.carsubmit{
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    margin: 20px 0;
+    color: #fff;
+    background-color: #fe6721;
+    border: none;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .carinput-box-group{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0px;
+    }
+  }
+
+.carshow{
+    width: 100%;
+    background-color: #333;
+}
+
+.listcar {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.boxofcar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 1050px;
+    gap: 30px;
+    margin: 0 auto;
+}
+
+.imgofcar {
+    width: 250px;
+    height: 150px;
+    border-radius: 20px;
+    /* border: 1px solid black; */
+}
+
+.imgofcar img {
+    width: 250px;
+    height: 180px;
+    border-radius: 20px;
+    justify-content: center;
+    object-fit: cover;
+}
+
+/* .car_info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+} */
+
+.info_car {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin-top: 10px;
+    gap: 25px;
+    justify-content: center;
+}
+
+.carinfotitle{
+    display: flex;
+    color: #fe6721;
+}
+
+.carcontent{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.boxinfocar{
+    display: flex;
+    width: 185px;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.car_address{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.imgofcarforrent {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 500px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.imgofcarforrent img {
+    max-width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.rentalinfo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 990px) {
+    .carinfotitle h1{
+        display: flex;
+        color: #fe6721;
+        text-align: center;
+    }
+
+    .carinfotitle {
+        display: flex;
+        color: #fe6721;
+        text-align: center;
+        justify-content: center;
+    }
+  }
