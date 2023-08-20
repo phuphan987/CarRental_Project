@@ -3,19 +3,24 @@ session_start();
 $loggedIn = isset($_SESSION['loggedIn']) ? $_SESSION['loggedIn'] : false;
 include('server.php');
 $email = $_SESSION['email'];
-$query = "SELECT * FROM rent_info 
-JOIN car_info ON rent_info.license_plate = car_info.license_plate 
-JOIN brand_info ON car_info.model_id = brand_info.model_id 
-JOIN address ON car_info.district = address.district AND car_info.zipcode = address.zipcode
-WHERE rent_info.client_id = (SELECT client_id FROM client WHERE email='$email');";
+// $query = "SELECT * FROM rent_info 
+// JOIN car_info ON rent_info.license_plate = car_info.license_plate 
+// JOIN brand_info ON car_info.model_id = brand_info.model_id 
+// JOIN address ON car_info.district = address.district AND car_info.zipcode = address.zipcode
+// WHERE rent_info.client_id = (SELECT client_id FROM client WHERE email='$email');";
+
+$query = "SELECT * FROM rent_info JOIN car_info ON rent_info.license_plate = car_info.license_plate JOIN brand_info ON car_info.model_id = brand_info.model_id JOIN client ON client.client_id = car_info.client_id JOIN address ON car_info.district = address.district AND car_info.zipcode = address.zipcode WHERE rent_info.client_id = (SELECT client_id FROM client WHERE email='$email');";
 
 $conn = mysqli_connect('localhost', 'root', '', 'carrental_db');
+
 
 if (!$conn) {
     die("Error: " . mysqli_connect_error());
 }
 
 $result = mysqli_query($conn, $query);
+
+// $sql2 = "SELECT fname, lname, tel_no FROM client WHERE client_id = (SELECT client_id FROM car_info WHERE license_plate='$row['license_plate']'";
 
 mysqli_close($conn);
 ?>
@@ -145,6 +150,16 @@ if (!$loggedIn) {
                                         <p>District: <?php echo $row['district']; ?></p>
                                         <p style="font-size: 25px; color: red;"><?php echo $formatted_total_cost; ?> THB</p>
 
+                                    </div>
+                                </div>
+                                <div class="car_address" style="margin-right: 415px">
+                                    <div class="carinfotitle">
+                                        <img src="">
+                                        <h4>Lessor Contact</h4>
+                                    </div>
+                                    <div class="boxinfocar">
+                                        <p>Name: <?php echo $row['fname'] . ' ' . $row['lname']; ?></p>
+                                        <p>Phone Number: <?php echo $row['tel_no']; ?></p>
                                     </div>
                                 </div>
                             </div>

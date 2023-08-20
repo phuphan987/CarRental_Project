@@ -4,9 +4,9 @@ $loggedIn = isset($_SESSION['loggedIn']) ? $_SESSION['loggedIn'] : false;
 
 include('server.php');
 $x = 0;
-$id = $_SESSION['client_id'];
-$_SESSION['start-date'] =
-  $startDate = $_GET['start-date'];
+
+
+$startDate = $_GET['start-date'];
 $endDate = $_GET['end-date'];
 $_SESSION['start-date'] = $startDate;
 $_SESSION['end-date'] = $endDate;
@@ -14,6 +14,13 @@ $province = $_GET['province'];
 $district = $_GET['district'];
 $brand = $_GET['brand'];
 $transmission = $_GET['transmission'];
+
+if (isset($_SESSION['client_id'])) {
+  $id = $_SESSION['client_id'];
+}
+else {
+  $id = 0;}
+
 $query2 = "select * from rent_info where client_id='$id';";
 $conn = mysqli_connect('localhost', 'root', '', 'carrental_db');
 $result2 = mysqli_query($conn, $query2);

@@ -22,6 +22,16 @@ while ($row = mysqli_fetch_assoc($result2)) {
 $start_dates_json = json_encode($start_dates);
 $end_dates_json = json_encode($end_dates);
 
+$startDateString = $_SESSION['start-date'];
+$endDateString = $_SESSION['end-date'];
+
+$startDate = new DateTime($startDateString);
+$endDate = new DateTime($endDateString);
+
+$interval = $startDate->diff($endDate);
+
+$numberOfDays = $interval->days;
+
 ?>
 
 <!DOCTYPE html>
@@ -134,7 +144,8 @@ $end_dates_json = json_encode($end_dates);
                                     <label for="start-date"><i class="fa-regular fa-calendar me-2"></i>Date
                                         range</label>
                                     <input id="" name="date-picker" class="date-info" type="text"
-                                        placeholder="Pick-up to drop-off" value="<?php echo $_SESSION['start-date'] .' to ' .$_SESSION['end-date']; ?>"
+                                        placeholder="Pick-up to drop-off"
+                                        value="<?php echo $_SESSION['start-date'] . ' to ' . $_SESSION['end-date']; ?>"
                                         readonly>
                                 </div>
 
@@ -175,7 +186,7 @@ $end_dates_json = json_encode($end_dates);
                             </div>
                         </div>
 
-                        <h5 class="fw-bold mb-3 mt-4">Credit card infomation</h5>
+                        <h5 class="fw-bold mb-3 mt-4">Credit card information</h5>
                         <div>
                             <?php
                             $sql2 = "SELECT c.* FROM credit_card_client c JOIN client cl ON c.client_id = cl.client_id WHERE cl.email = '$email';";
@@ -285,17 +296,28 @@ $end_dates_json = json_encode($end_dates);
                     <div class="cost-info border rounded me-2 mt-4">
                         <h5 class="fw-bold mb-3">Cost Detail</h5>
 
-                        <div class="d-flex justify-content-between mb-3 border-bottom">
-                            <p class="" id="day-diff">1 day rate</p>
-                            <p class="" id="price1">
-                                <?php echo 'THB ', $formatted_price; ?>
-                            </p>
-                        </div>
+                        <?php if ($numberOfDays == 1): ?>
+                            <div class="d-flex justify-content-between mb-3 border-bottom">
+                                <p class="" id="day-diff">1 day rate</p>
+                                <p class="" id="price1">
+                                    <?php echo 'THB ', $formatted_price; ?>
+                                </p>
+                            </div>
 
+                        <?php else: ?>
+                            <div class="d-flex justify-content-between mb-3 border-bottom">
+                                <p class="" id="day-diff"><?php echo $numberOfDays?> days rate</p>
+                                <p class="" id="">
+                                    <?php echo 'THB ', $price * $numberOfDays; ?>
+                                </p>
+                            </div>
+                        <?php endif; ?>
                         <div class="d-flex justify-content-between">
                             <p class="fs-5">Total payment</p>
                             <p class="fs-5 fw-bold total-price" id="price2">
-                                <?php echo 'THB ', $formatted_price; ?>
+                                <?php $price = $price * $numberOfDays; ?>
+                                <?php $cal_price = number_format($price, 2); ?>
+                                <?php echo 'THB ', $cal_price; ?>
                             </p>
                         </div>
 
